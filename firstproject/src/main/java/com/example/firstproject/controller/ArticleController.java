@@ -48,7 +48,6 @@ public class ArticleController {
     public String index(Model model) {
         ArrayList<Article> articleEntityList = articleRepository.findAll();
         model.addAttribute("articleList", articleEntityList);
-
         return "articles/index";
     }
 }
