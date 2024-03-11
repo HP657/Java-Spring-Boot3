@@ -33,7 +33,7 @@ public class ArticleController {
         // 리파지터리
         Article saved = articleRepository.save(article);
         log.info(saved.toString());
-        return "";
+        return "redirect:/articles/" + saved.getId();
     }
 
     @GetMapping("/articles/{id}")
