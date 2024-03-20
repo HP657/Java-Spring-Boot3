@@ -27,4 +27,23 @@ class ArticleServiceTest {
 
         assertEquals(expected.toString(), articles.toString());
     }
+
+    @Test
+    void show_성공_존재하는_id_입력() {
+        long id = 1L;
+        Article expected = new Article(id, "제목1", "내용1");
+
+        Article article = articleService.show(id);
+
+        assertEquals(expected.toString(), article.toString());
+    }
+    @Test
+    void show_실패_존재하지_않는_id_입력() {
+        long id = 1L;
+        Article expeted = null;
+
+        Article article = articleService.show(id);
+
+        assertEquals(expeted, article);
+    }
 }
