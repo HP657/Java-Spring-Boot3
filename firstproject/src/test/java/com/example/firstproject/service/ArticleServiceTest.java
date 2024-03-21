@@ -74,4 +74,66 @@ class ArticleServiceTest {
 
         assertEquals(expected, article);
     }
+    @Test
+    @Transactional
+    void update_성공_존재하는_id와_title_content가_있는_dto_입력() {
+        long id = 1L;
+        String title = "수정된 제목1";
+        String content = "수정된 내용1";
+
+        ArticleForm dto = new ArticleForm(id, title, content);
+        Article expected = new Article(id, title, content);
+
+        Article article = articleService.update(id, dto);
+
+        assertEquals(expected.toString(), article.toString());
+    }
+    @Test
+    @Transactional
+    void update_성공_존재하는_id와_title만_있는_dto_입력() {
+        Long id = 1L;
+        String title = "수정된 제목2";
+        String content = null;
+
+        ArticleForm dto = new ArticleForm(id, title, content);
+        Article expected = new Article(1L, "수정된 제목2", "내용1");
+
+        Article article = articleService.update(id, dto);
+
+        assertEquals(expected.toString(), article.toString());
+    }
+    @Test
+    @Transactional
+    void update_실패_존재하지_않는_id와_dto_입력() {
+        Long id = -1L;
+        String title = "수정된 제목3";
+        String content = "수정된 내용3";
+
+        ArticleForm dto = new ArticleForm(id, title, content);
+        Article expected = null;
+
+        Article article = articleService.update(id, dto);
+
+        assertEquals(expected, article);
+    }
+    @Test
+    @Transactional
+    void delete_성공_존재하는_id와_dto_입력() {
+        Long id = 1L;
+        Article expected = new Article(id, "제목1", "내용1");
+
+        Article article = articleService.delete(id);
+
+        assertEquals(expected.toString(), article.toString());
+    }
+    @Test
+    @Transactional
+    void delete_실패_존재하지_않는_id와_입력() {
+        Long id = -1L;
+        Article expected = null;
+
+        Article article = articleService.delete(id);
+
+        assertEquals(expected, article);
+    }
 }
