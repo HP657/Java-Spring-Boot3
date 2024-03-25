@@ -1,6 +1,7 @@
 package com.example.firstproject.api;
 
 import com.example.firstproject.dto.CommentDto;
+import com.example.firstproject.entity.Comment;
 import com.example.firstproject.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,4 +28,11 @@ public class CommentApiController {
         return ResponseEntity.status(HttpStatus.OK).body(created);
     }
 
+    @PatchMapping("/api/comments/{id}")
+    public ResponseEntity<CommentDto> update(@PathVariable Long id, @RequestBody CommentDto dto) {
+        CommentDto updateDto = commentService.update(id ,dto);
+        return ResponseEntity.status(HttpStatus.OK).body(updateDto);
+    }
+
+    
 }
