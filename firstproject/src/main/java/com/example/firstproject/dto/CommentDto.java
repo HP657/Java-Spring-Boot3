@@ -11,8 +11,8 @@ import lombok.ToString;
 @Getter
 @ToString
 public class CommentDto {
-    private long id;
-    private long artilceId;
+    private Long id;
+    private Long articleId;
     private String nickname;
     private String body;
 
@@ -25,3 +25,4 @@ public class CommentDto {
         );
     }
 }
+
