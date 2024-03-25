@@ -28,3 +28,10 @@ INSERT INTO comment(article_id, nickname, body) VALUES(5, 'Choi', '초밥');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Park', '조깅');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Kim', '유튜브 시청');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Choi', '독서');
+
+
+INSERT INTO pizza (name, price) VALUES ('페페로니 피자', 25900);
+INSERT INTO pizza (name, price) VALUES ('불고기 피자', 29900);
+INSERT INTO pizza (name, price) VALUES ('고구마 피자', 30900);
+INSERT INTO pizza (name, price) VALUES ('포테이토 피자', 27900);
+INSERT INTO pizza (name, price) VALUES ('치즈 피자', 23900);
