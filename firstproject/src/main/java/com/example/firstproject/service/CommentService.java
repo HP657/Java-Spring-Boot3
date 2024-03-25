@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.yaml.snakeyaml.tokens.CommentToken;
 
+import javax.swing.plaf.PanelUI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -52,5 +53,13 @@ public class CommentService {
         target.patch(dto);
         Comment updated = commentRepository.save(target);
         return CommentDto.createCommentDto(updated);
+    }
+
+    @Transactional
+    public CommentDto delete(Long id) {
+        Comment target = commentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("댓글 삭제 실패! 대상이 없음"));
+        commentRepository.delete(target);
+        return CommentDto.createCommentDto(target);
     }
 }
