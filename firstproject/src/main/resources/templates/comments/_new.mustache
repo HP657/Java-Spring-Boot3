@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-body">
+        <form>
+            <div class="mb-3">
+                <label class="form-label">닉네임</label>
+                <input type="text" class="form-control" id="new-comment-nickname">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">댓글 내용</label>
+                <textarea type="text" class="form-control" rows="3" id="new-comment-body"></textarea>
+            </div>
+            {{#article}}
+                <input type="hidden" id="new-comment-article-id" value="{{id}}">
+            {{/article}}
+            <button type="button" class="btn btn-primary" id="comment-create-btn">댓글 작성</button>
+        </form>
+    </div>
+</div>
