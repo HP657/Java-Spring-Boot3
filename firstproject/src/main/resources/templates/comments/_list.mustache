@@ -12,6 +12,8 @@
                         data-bs-article-id="{{articleId}}">
                     수정
                 </button>
+                <button type="button" class="btn btn-sm btn-outline-danger comment-delete-btn"
+                        data-comment-id="{{id}}">삭제</button>
             </div>
             <div class="card-body">
                 {{body}}
@@ -80,6 +82,30 @@
             const msg = (response.ok) ? "댓글이 수정됐습니다." : "댓글 수정 실패!";
             alert(msg);
             window.location.reload();
+        });
+    });
+</script>
+<script>
+    const commentDeleteBtns = document.querySelectorAll(".comment-delete-btn");
+    commentDeleteBtns.forEach(btn => {
+        btn.addEventListener("click", (event) => {
+            const commentDeleteBtn = event.target;
+            const commentId = commentDeleteBtn.getAttribute("data-comment-id");
+            console.log(`${commentId}번 댓글`);
+            const url = `/api/comments/${commentId}`;
+            fetch(url, {
+                method: "DELETE"
+            }).then(response => {
+                if (!response.ok) {
+                    alert("댓글 삭제 실패!);
+                    return;
+                }
+                const target = document.querySelector(`#comments-${commentId}`);
+                target.remove();
+                const msg = `${commendId}번 댓글이 삭제됨`;
+                alert(msg);
+                window.location.reload();
+            });
         });
     });
 </script>

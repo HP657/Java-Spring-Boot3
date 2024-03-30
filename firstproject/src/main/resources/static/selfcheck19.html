@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>셀프치크 19</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <ul>
+        <li class="prerequisite">HTML</li>
+        <li class="prerequisite">CSS</li>
+        <li class="prerequisite">JavaScript</li>
+        <li class="prerequisite">JAVA</li>
+        <li>SQL</li>
+        <li>Spring Boot</li>
+    </ul>
+
+    <script>
+        const liElements = document.querySelectorAll(".prerequisite");
+        liElements.forEach( li => {
+            li.style.textDecoration = "line-through";
+        });
+    </script>
+</body>
+</html>
